@@ -1,0 +1,94 @@
+Build a web-based application that allows the user to upload an Excel file (via drag-and-drop or file selection). The application should:
+🔹 CORE FUNCTIONALITY:
+
+    Read the uploaded .xlsx file and filter only rows where the Status column equals "Occupied".
+
+    Group the data by values in the column "MusterStation General Alarm primary" (these groups are known as LB1–LB7).
+
+    For each group:
+
+        Extract only the following columns: "Person Names", "Roles", "Companies", "Cabin", "Bunk", and "MusterStation General Alarm primary".
+
+        Generate a printable A4 portrait document page with a header (date/time) and a clean tabular format.
+
+        Bold the header row and alternate row colors (e.g., white/blue, user-selectable).
+
+        Highlight any row with "Companies" == "Nortrans" in a third user-defined color.
+
+    The order of groups must always be LB1, LB2, ..., LB7.
+
+🔹 PRINT & EXPORT OPTIONS:
+
+    Provide two buttons:
+
+        Print → sends the prepared document directly to the system printer using default or user-defined settings.
+
+        Save PDF → allows the user to download the full multi-page PDF.
+
+🔹 SETTINGS PANEL (persistent using localStorage):
+
+    Default settings:
+
+        Page size: A4
+
+        Orientation: Portrait
+
+        Print Mode: Double-sided
+
+        Theme: Light
+
+        Font size: Medium
+
+        Color scheme: White + Light Blue (alternating)
+
+        Nortrans highlight color: Light Gray
+
+        Date format: YYYY-MM-DD
+
+        Time format: 24h
+
+    Allow the user to change:
+
+        Page orientation (portrait/landscape)
+
+        Whether to print in black & white or color
+
+        Row colors and Nortrans highlight color via dropdowns
+
+        Font size and text alignment
+
+        Date/time format
+
+    All changes must be saved locally and persist across sessions.
+
+    Add a button: “Reset to Default” to restore all settings.
+
+🔹 UI/UX:
+
+    Clean, modern interface
+
+    Use responsive design and grid layout
+
+    Real-time preview or feedback after Excel file upload
+
+    Display timestamp of generation on each page
+
+🔹 ERROR HANDLING:
+
+    If the user uploads a file that is not a valid Excel file (.xlsx), display a friendly error message:
+    ⚠️ "Unsupported or unknown file type. Please upload a valid Excel (.xlsx) file."
+
+    If the uploaded file does not contain the required columns or does not match the expected structure, show:
+    ⚠️ "Invalid file format or missing data. Please check your Excel file."
+
+    Disable the print/save buttons until a valid file is processed.
+
+🔹 OPTIONAL FEATURES:
+
+    Theme selector (e.g., Light, Dark, Sepia)
+
+    Drag-and-drop or clickable file zone
+
+    Real-time row count and group count display
+
+    Visual feedback on successful print or export
